@@ -24,7 +24,7 @@ namespace QuickBox
         public static UpdateMenuDelegate DoUpdateMenuByGroupName;   //更新指定分组
 
         short _winQKey;
-        string _winQ = "Win-Q";
+        string _winQ = "Alt-J";
 
         public FrmTray()
         {
@@ -40,7 +40,7 @@ namespace QuickBox
 
             //注册热键
             _winQKey = HotKey.GlobalAddAtom(_winQ);
-            HotKey.RegisterHotKey(this.Handle, _winQKey, HotKey.KeyModifiers.WindowsKey, (int)Keys.Q);
+            HotKey.RegisterHotKey(this.Handle, _winQKey, HotKey.KeyModifiers.Alt, (int)Keys.J);
         }
 
         private void InitTrayMenu()
@@ -224,6 +224,10 @@ namespace QuickBox
                     BoxConfig.STATIC_MainForm.Show();
                     BoxConfig.STATIC_MainForm.Activate();
                 }
+                else if (BoxConfig.STATIC_MainForm.Visible)
+                {
+                    BoxConfig.STATIC_MainForm.Hide();
+                }
                 else
                 {
                     BoxConfig.STATIC_MainForm.Show();
@@ -274,7 +278,10 @@ namespace QuickBox
                     BoxConfig.STATIC_StartForm.Show();
                     BoxConfig.STATIC_StartForm.Activate();
                 }
-                else
+                else if(BoxConfig.STATIC_StartForm.Visible)
+                {
+                    BoxConfig.STATIC_StartForm.Hide();
+                } else
                 {
                     BoxConfig.STATIC_StartForm.Show();
                     BoxConfig.STATIC_StartForm.Activate();

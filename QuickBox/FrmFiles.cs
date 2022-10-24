@@ -195,6 +195,15 @@ namespace QuickBox
 
                         //添加新文件到组中
                         BoxFileData.addShortcut(boxFileItem, groupName);
+
+
+                        // 复制文件到软件程序目录下
+                        if (!Directory.Exists($"{Directory.GetCurrentDirectory()}\\Progress"))
+                            Directory.CreateDirectory($"{Directory.GetCurrentDirectory()}\\Progress");
+                        File.Copy(filePath, $"{Directory.GetCurrentDirectory()}\\Progress\\{Path.GetFileName(file)}");
+                    } else if (Directory.Exists(file))
+                    {
+                        fileName = Path.GetFileNameWithoutExtension(file);
                     }
                 }
 
@@ -635,7 +644,7 @@ namespace QuickBox
             this.StartPosition = FormStartPosition.Manual;
             int screenWidth = Screen.PrimaryScreen.WorkingArea.Width;
             int screenHeight = Screen.PrimaryScreen.WorkingArea.Height;
-            int x = 5;
+            int x = screenWidth - this.Width - 5;
             int y = screenHeight - this.Height - 5;
             this.Location = new Point(x, y);
         }
