@@ -1,3 +1,9 @@
+D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\bin\Debug\QuickBox.exe.config
+D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\bin\Debug\QuickBox.exe
+D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\bin\Debug\QuickBox.pdb
+D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\bin\Debug\AutocompleteMenu.dll
+D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\bin\Debug\Interop.IWshRuntimeLibrary.dll
+D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\bin\Debug\AutocompleteMenu.pdb
 D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\obj\Debug\QuickBox.csproj.AssemblyReference.cache
 D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\obj\Debug\QuickBox.csproj.SuggestedBindingRedirects.cache
 D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\obj\Debug\QuickBox.FrmFiles.resources
@@ -6,12 +12,6 @@ D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forP
 D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\obj\Debug\QuickBox.FrmStart.resources
 D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\obj\Debug\QuickBox.csproj.GenerateResource.cache
 D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\obj\Debug\QuickBox.csproj.CoreCompileInputs.cache
-D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\bin\Debug\QuickBox.exe.config
-D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\bin\Debug\QuickBox.exe
-D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\bin\Debug\QuickBox.pdb
-D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\bin\Debug\AutocompleteMenu.dll
-D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\bin\Debug\Interop.IWshRuntimeLibrary.dll
-D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\bin\Debug\AutocompleteMenu.pdb
 D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\obj\Debug\QuickBox.csproj.CopyComplete
 D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\obj\Debug\QuickBox.exe
 D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\obj\Debug\QuickBox.pdb

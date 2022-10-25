@@ -46,7 +46,7 @@
             this.txtInput.Location = new System.Drawing.Point(4, 4);
             this.txtInput.MaxLength = 50;
             this.txtInput.Name = "txtInput";
-            this.txtInput.Size = new System.Drawing.Size(440, 51);
+            this.txtInput.Size = new System.Drawing.Size(590, 51);
             this.txtInput.TabIndex = 0;
             this.txtInput.Text = "测试test";
             this.txtInput.WordWrap = false;
@@ -69,7 +69,7 @@
             this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnClose.BackgroundImage = global::QuickBox.Properties.Resources.StartFormCloseButton;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Location = new System.Drawing.Point(449, 6);
+            this.btnClose.Location = new System.Drawing.Point(600, 7);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(48, 48);
             this.btnClose.TabIndex = 1;
@@ -98,7 +98,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(500, 80);
+            this.ClientSize = new System.Drawing.Size(660, 82);
             this.ControlBox = false;
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lbInfo);
@@ -115,6 +115,7 @@
             this.TopMost = true;
             this.Activated += new System.EventHandler(this.FrmStart_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmStart_FormClosed);
+            this.Load += new System.EventHandler(this.FrmStart_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

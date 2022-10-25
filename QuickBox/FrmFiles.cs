@@ -8,6 +8,7 @@ using QuickBox.MG.Common;
 using QuickBox.MG.Data;
 using QuickBox.MG.Entity;
 using QuickBox.MG.Controls;
+using CSharp_Util.Util;
 
 namespace QuickBox
 {
@@ -156,11 +157,6 @@ namespace QuickBox
                 string fileExtension;
                 string filePath;
 
-                Bitmap fileLargeIcon;
-                Bitmap fileSmallIcon;
-
-                BoxFile boxFileItem;
-
                 foreach (string file in files)
                 {
                     if (File.Exists(file))
@@ -169,6 +165,9 @@ namespace QuickBox
                         fileName = Path.GetFileNameWithoutExtension(file);
                         //文件格式
                         fileExtension = Path.GetExtension(file).ToLower();
+                        filePath = Path.GetFullPath(file);
+                        /**
+                        // --------------------> 不接受 lnk 快捷方式 <--------------------
                         //文件路径
                         if (fileExtension == ".lnk")
                         {
@@ -179,23 +178,10 @@ namespace QuickBox
                         {
                             filePath = Path.GetFullPath(file);
                         }
-                        //文件大图标
-                        fileLargeIcon = Utils.GetFileLargeIcon(filePath).ToBitmap();
-                        //文件小图标
-                        fileSmallIcon = Utils.GetFileSmallIcon(filePath).ToBitmap();
+                        **/
 
-                        //添加新文件
-                        boxFileItem = new BoxFile()
-                        {
-                            Name = fileName,
-                            LargeIcon = fileLargeIcon,
-                            SmallIcon = fileSmallIcon,
-                            Path = filePath
-                        };
 
-                        //添加新文件到组中
-                        BoxFileData.addShortcut(boxFileItem, groupName);
-
+                        addNewItemInBox(groupName, filePath, fileName);
 
                         // 复制文件到软件程序目录下
                         if (!Directory.Exists($"{Directory.GetCurrentDirectory()}\\Progress"))
@@ -203,7 +189,18 @@ namespace QuickBox
                         File.Copy(filePath, $"{Directory.GetCurrentDirectory()}\\Progress\\{Path.GetFileName(file)}");
                     } else if (Directory.Exists(file))
                     {
-                        fileName = Path.GetFileNameWithoutExtension(file);
+                        string retFilePath = FileUtil.FindExecutableProgramWithSameNameAsDirectory(file);
+                        if (!"".Equals(retFilePath))
+                        {
+                            var relativePath = retFilePath.Replace(file, "");
+                            var parentPath = $"{Directory.GetCurrentDirectory()}\\Progress";
+                            retFilePath =  parentPath + "\\" + Path.GetFileName(file) + relativePath;
+                            if (!Directory.Exists(parentPath))
+                                Directory.CreateDirectory(parentPath);
+                            Directory.Move(file, parentPath+$"\\{Path.GetFileName(file)}");
+
+                            addNewItemInBox(groupName, retFilePath, Path.GetFileNameWithoutExtension(retFilePath));
+                        }
                     }
                 }
 
@@ -214,6 +211,33 @@ namespace QuickBox
                 FrmTray.DoUpdateMenuByGroupName(groupName);
             }
         }
+
+        private void addNewItemInBox(string groupName, string filePath, string fileName)
+        {
+            Bitmap fileLargeIcon;
+            Bitmap fileSmallIcon;
+            BoxFile boxFileItem;
+
+
+            //文件大图标
+            fileLargeIcon = Utils.GetFileLargeIcon(filePath).ToBitmap();
+            //文件小图标
+            fileSmallIcon = Utils.GetFileSmallIcon(filePath).ToBitmap();
+
+            //添加新文件
+            boxFileItem = new BoxFile()
+            {
+                Name = fileName,
+                LargeIcon = fileLargeIcon,
+                SmallIcon = fileSmallIcon,
+                Path = filePath
+            };
+
+            //添加新文件到组中
+            BoxFileData.addShortcut(boxFileItem, groupName);
+        }
+
+
 
         /// <summary>
         /// 拖拽文件

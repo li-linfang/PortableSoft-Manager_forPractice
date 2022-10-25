@@ -25,10 +25,10 @@ namespace QuickBox
             boxFiles = MG.Data.BoxFileData.getShortcuts();
 
             //设置自动完成菜单每一列的宽度
-            var columnWidth = new int[] { 40, 120, 270 };
+            var columnWidth = new int[] { 40, 150, 400 };
 
             //设置自动完成菜单尺寸
-            this.AutoCompleteMenu.MaximumSize = new System.Drawing.Size(430, 200);
+            this.AutoCompleteMenu.MaximumSize = new System.Drawing.Size(590, 200);
 
             if (boxFiles != null && boxFiles.Count > 0)
             {
@@ -85,9 +85,11 @@ namespace QuickBox
                     this.lbInfo.Text = "=>[请输入]";
                 }
                 input = null;
+            } else if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
             }
         }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -101,6 +103,11 @@ namespace QuickBox
         private void FrmStart_FormClosed(object sender, FormClosedEventArgs e)
         {
             Utils.ClearMemory();    //释放内存
+        }
+
+        private void FrmStart_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

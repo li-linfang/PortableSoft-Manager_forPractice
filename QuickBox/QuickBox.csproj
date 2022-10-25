@@ -104,6 +104,7 @@
     <Compile Include="FrmTray.designer.cs">
       <DependentUpon>FrmTray.cs</DependentUpon>
     </Compile>
+    <Compile Include="MG\Common\FileUtil.cs" />
     <Compile Include="MG\Common\HideOnStartupApplicationContext.cs" />
     <Compile Include="MG\Common\HotKey.cs" />
     <Compile Include="MG\Common\MessageUtil.cs" />
