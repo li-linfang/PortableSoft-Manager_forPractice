@@ -2,42 +2,15 @@ QuickBox(windows 桌面快捷方式管理器)
 ===================
 
 
-> ![LOGO](https://github.com/viewergit/QuickBox/blob/master/ReadMe/Box.ico?raw=true) 这是一个windows平台下面的快捷启动、快捷方式管理、热键管理软件，网上有很多这样的软件（音速启动、小Q桌面等）
+修改自 [https://github.com/git1848/QuickBox](https://github.com/git1848/QuickBox)
 
 
-> 但是这些软件不太适合自己的操作习惯，就自己开发了一个
+增加了一些自己用的到的特性。
+1. 使用相对路径的方式管理 exe、bat 等可执行程序（方便管理绿色软件）
+2. 拖入文件夹时遍历文件夹中文件，寻找与文件夹同名的可执行程序（exe、bat）
+3. 双击系统栏图标后，更改窗口出现的位置
+4. 更改快捷键、以及呼出快捷输出栏的大小
 
 
- 1. **主窗口**，显示在桌面的左下角
-
-    ![主窗口](https://github.com/viewergit/QuickBox/blob/master/ReadMe/2.png?raw=true)
-
-
- 2. **Win+Q快捷键**，快捷搜索并启动某个程序
-
-    ![快捷启动某个程序](https://github.com/viewergit/QuickBox/blob/master/ReadMe/1.png?raw=true)
-
- 3. **右下角图标** 在桌面右下角，右键点击，弹出菜单
-
-    ![右键点击](https://github.com/viewergit/QuickBox/blob/master/ReadMe/4.png?raw=true)
-
- 4. **如何添加？**选中快捷方式或者(exe文件)，拖拽到主窗口
-
-    ![选中快捷方式或者(exe文件)，拖拽到主窗口](https://github.com/viewergit/QuickBox/blob/master/ReadMe/0.png?raw=true)
-
- 5. **如何移动？**选中快捷方式,右键选中（可批量），移动到其它分组
-
-    ![选中快捷方式或者(exe文件)，拖拽到主窗口](https://github.com/viewergit/QuickBox/blob/master/ReadMe/5.png?raw=true)
-
- 6. **图标分组管理**
-
-    ![图标分组管理](https://github.com/viewergit/QuickBox/blob/master/ReadMe/3.png?raw=true)
-
-
-
-*2015-06-24 first*
-
-*2019-04-02 还是觉得这是个好东西*
-----------
-
-
+遇到的待修复的Bug
+1. 当移动的文件被占用时，移动文件失败，进而导致添加失败。
