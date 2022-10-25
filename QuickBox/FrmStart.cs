@@ -39,7 +39,7 @@ namespace QuickBox
                     this.IconImageList.Images.Add(boxFiles[i].SmallIcon);
 
                     //设置字段完成菜单的每一项
-                    menuItem = new MulticolumnAutocompleteItem(new string[] { (i + 1).ToString().PadLeft(3, '0'), boxFiles[i].Name, boxFiles[i].Path }, boxFiles[i].Name, true, true);
+                    menuItem = new MulticolumnAutocompleteItem(new string[] { (i + 1).ToString().PadLeft(3, '0'), boxFiles[i].Name, boxFiles[i].AbsolutePath }, boxFiles[i].Name, true, true);
                     menuItem.ColumnWidth = columnWidth;
                     menuItem.ImageIndex = i;
 
@@ -64,7 +64,7 @@ namespace QuickBox
                     BoxFile selectBoxFile = this.boxFiles.Where(o => o.Name == input).FirstOrDefault();
                     if (selectBoxFile != null)
                     {
-                        bool canStart = Utils.StartFile(selectBoxFile.Path);
+                        bool canStart = Utils.StartFile(selectBoxFile.AbsolutePath);
                         if (canStart)
                         {
                             this.Close();

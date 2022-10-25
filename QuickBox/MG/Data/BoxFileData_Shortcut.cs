@@ -89,7 +89,8 @@ namespace QuickBox.MG.Data
             var _boxFile = data.Value.Where(o => o.Key == _fileKey).FirstOrDefault();
 
             _boxFile.Name = name;
-            _boxFile.Path = path;
+            // 疑问点？
+            //_boxFile.Path = path;
 
             BoxFileData.SaveShortcut();
         }

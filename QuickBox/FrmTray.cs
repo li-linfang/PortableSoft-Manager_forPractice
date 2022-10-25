@@ -193,7 +193,7 @@ namespace QuickBox
             {
                 //打开文件
                 BoxFile selectBoxFileItem = toolStripMenuItem.Tag as BoxFile;
-                bool state = Utils.StartFile(selectBoxFileItem.Path);
+                bool state = Utils.StartFile(selectBoxFileItem.AbsolutePath);
                 if (!state)
                 {
                     MessageUtil.ShowTips(string.Format("文件“{0}”不存在。", selectBoxFileItem.Name));

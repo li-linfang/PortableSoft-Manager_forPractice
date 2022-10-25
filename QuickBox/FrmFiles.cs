@@ -181,12 +181,16 @@ namespace QuickBox
                         **/
 
 
-                        addNewItemInBox(groupName, filePath, fileName);
+                        var relativePath = "\\"+Path.GetFileName(file);
+                        var parentPath = $"{Directory.GetCurrentDirectory()}\\Progress";
+                        var newParentFolder = Path.GetFileNameWithoutExtension(file);
 
                         // 复制文件到软件程序目录下
-                        if (!Directory.Exists($"{Directory.GetCurrentDirectory()}\\Progress"))
-                            Directory.CreateDirectory($"{Directory.GetCurrentDirectory()}\\Progress");
-                        File.Copy(filePath, $"{Directory.GetCurrentDirectory()}\\Progress\\{Path.GetFileName(file)}");
+                        if (!Directory.Exists(parentPath+"\\"+newParentFolder))
+                            Directory.CreateDirectory(parentPath+"\\"+newParentFolder);
+                        File.Move(file, parentPath+$"\\{newParentFolder}\\{Path.GetFileName(file)}");
+
+                        addNewItemInBox(groupName, relativePath, fileName);
                     } else if (Directory.Exists(file))
                     {
                         string retFilePath = FileUtil.FindExecutableProgramWithSameNameAsDirectory(file);
@@ -195,11 +199,12 @@ namespace QuickBox
                             var relativePath = retFilePath.Replace(file, "");
                             var parentPath = $"{Directory.GetCurrentDirectory()}\\Progress";
                             retFilePath =  parentPath + "\\" + Path.GetFileName(file) + relativePath;
+
                             if (!Directory.Exists(parentPath))
                                 Directory.CreateDirectory(parentPath);
                             Directory.Move(file, parentPath+$"\\{Path.GetFileName(file)}");
 
-                            addNewItemInBox(groupName, retFilePath, Path.GetFileNameWithoutExtension(retFilePath));
+                            addNewItemInBox(groupName, relativePath, Path.GetFileNameWithoutExtension(retFilePath));
                         }
                     }
                 }
@@ -214,15 +219,10 @@ namespace QuickBox
 
         private void addNewItemInBox(string groupName, string filePath, string fileName)
         {
-            Bitmap fileLargeIcon;
-            Bitmap fileSmallIcon;
-            BoxFile boxFileItem;
+            Bitmap fileLargeIcon  = null;
+            Bitmap fileSmallIcon = null;
+            BoxFile boxFileItem = null ;
 
-
-            //文件大图标
-            fileLargeIcon = Utils.GetFileLargeIcon(filePath).ToBitmap();
-            //文件小图标
-            fileSmallIcon = Utils.GetFileSmallIcon(filePath).ToBitmap();
 
             //添加新文件
             boxFileItem = new BoxFile()
@@ -230,8 +230,17 @@ namespace QuickBox
                 Name = fileName,
                 LargeIcon = fileLargeIcon,
                 SmallIcon = fileSmallIcon,
-                Path = filePath
+                RelativePath = filePath
             };
+
+            //文件大图标
+            fileLargeIcon = Utils.GetFileLargeIcon(boxFileItem.AbsolutePath).ToBitmap();
+            //文件小图标
+            fileSmallIcon = Utils.GetFileSmallIcon(boxFileItem.AbsolutePath).ToBitmap();
+
+            boxFileItem.LargeIcon = fileLargeIcon;
+            boxFileItem.SmallIcon = fileSmallIcon;
+
 
             //添加新文件到组中
             BoxFileData.addShortcut(boxFileItem, groupName);
@@ -278,7 +287,7 @@ namespace QuickBox
             {
                 BoxFile selectBoxFileItem = selectListViewItem.Tag as BoxFile;
 
-                bool state = Utils.StartFile(selectBoxFileItem.Path);
+                bool state = Utils.StartFile(selectBoxFileItem.AbsolutePath);
                 if (!state)
                 {
                     MessageUtil.ShowTips(string.Format("文件“{0}”不存在。", selectBoxFileItem.Name));
@@ -336,7 +345,7 @@ namespace QuickBox
             {
                 BoxFile selectBoxFileItem = selectListViewItem.Tag as BoxFile;
 
-                bool state = Utils.StartFile(selectBoxFileItem.Path);
+                bool state = Utils.StartFile(selectBoxFileItem.AbsolutePath);
                 if (!state)
                 {
                     MessageUtil.ShowTips(string.Format("文件“{0}”不存在。", selectBoxFileItem.Name));
@@ -425,8 +434,8 @@ namespace QuickBox
                     for (int i = 0; i < selectListView.SelectedItems.Count; i++)
                     {
                         selectBoxFileItem = selectListView.SelectedItems[i].Tag as BoxFile;
-                        Bitmap fileLargeIcon = Utils.GetFileIcon(selectBoxFileItem.Path, false).ToBitmap();
-                        Bitmap fileSmallIcon = Utils.GetFileIcon(selectBoxFileItem.Path, true).ToBitmap();
+                        Bitmap fileLargeIcon = Utils.GetFileIcon(selectBoxFileItem.AbsolutePath, false).ToBitmap();
+                        Bitmap fileSmallIcon = Utils.GetFileIcon(selectBoxFileItem.AbsolutePath, true).ToBitmap();
 
                         BoxFileData.updateShortcut(selectBoxFileItem.Key, fileLargeIcon, fileSmallIcon, selectTabPage.Text);
                     }
@@ -445,7 +454,7 @@ namespace QuickBox
                     selectBoxFileItem = selectListView.SelectedItems[0].Tag as BoxFile;
 
                     //打开文件位置
-                    Utils.OpenFolder(selectBoxFileItem.Path);
+                    Utils.OpenFolder(selectBoxFileItem.AbsolutePath);
                 }
             }
             else if (menuItem.Name == MenuName_SetGroup)            //设置分组
@@ -849,7 +858,8 @@ namespace QuickBox
                     listViewItem.Tag = boxFileItem;
                     listViewItem.ImageIndex = i;
 
-                    listViewItem.SubItems.AddRange(new string[] { boxFileItem.Path });
+                    // 疑问点？
+                    listViewItem.SubItems.AddRange(new string[] { boxFileItem.AbsolutePath });
 
                     listViewFiles.Items.Add(listViewItem);
                 }
@@ -948,7 +958,8 @@ namespace QuickBox
                     listViewItem.Tag = boxFileItem;
                     listViewItem.ImageIndex = i;
 
-                    listViewItem.SubItems.AddRange(new string[] { boxFileItem.Path });
+                    // 疑问点
+                    listViewItem.SubItems.AddRange(new string[] { boxFileItem.AbsolutePath });
 
                     listViewLove.Items.Add(listViewItem);
                 }
