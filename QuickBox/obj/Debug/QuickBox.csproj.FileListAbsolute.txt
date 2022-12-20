@@ -1,5 +1,6 @@
-D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\bin\Debug\QuickBox.exe.config
 D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\bin\Debug\QuickBox.exe
+D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\bin\Debug\CSharpUtil.dll
+D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\bin\Debug\QuickBox.exe.config
 D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\bin\Debug\QuickBox.pdb
 D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\bin\Debug\AutocompleteMenu.dll
 D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\bin\Debug\Interop.IWshRuntimeLibrary.dll

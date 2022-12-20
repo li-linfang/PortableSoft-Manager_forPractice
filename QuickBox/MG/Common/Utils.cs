@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSharpUtil;
+using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
@@ -260,17 +261,14 @@ namespace QuickBox.MG.Common
             }
             catch (Win32Exception ex)
             {
-                MessageUtil.ShowError("系统错误：" + ex.Message);
-
-                if (MessageUtil.ConfirmYesNo("是否打开文件所在的文件夹？"))
+                try
                 {
-                    //打开文件位置
-                    Utils.OpenFolder(fileName);
+                    UACUtils.RunAsAdministor(fileName);
                     return true;
-                }
-                else
+                } catch (Win32Exception ex2)
                 {
-                    return false;
+                    MessageUtil.ShowError("系统错误：" + ex.Message);
+                    return true;
                 }
             }
             catch (Exception ex)

@@ -5,8 +5,8 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过下列属性集
 // 控制。更改这些属性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("QuickBox")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("PortableSoft-Manager")]
+[assembly: AssemblyDescription("便携式软件整理归纳")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("QuickBox")]

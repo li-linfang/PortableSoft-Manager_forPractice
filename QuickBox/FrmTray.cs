@@ -62,7 +62,7 @@ namespace QuickBox
                     //创建菜单
                     toolStripSubMenu = new ToolStripMenuItem();
                     toolStripSubMenu.Text = group.Name;
-                    toolStripSubMenu.Image = QuickBox.Properties.Resources.Group;
+                    toolStripSubMenu.Image = PortableSoftManager.Properties.Resources.Group;
 
                     //添加到托盘菜单
                     this.notifyContextMenuStrip.Items.Add(toolStripSubMenu);
@@ -81,7 +81,7 @@ namespace QuickBox
             toolStripSubMenu = new ToolStripMenuItem();
             toolStripSubMenu.Text = "退出(&E)";
             toolStripSubMenu.Name = MenuName_Exit;
-            toolStripSubMenu.Image = QuickBox.Properties.Resources.Exit;
+            toolStripSubMenu.Image = PortableSoftManager.Properties.Resources.Exit;
             toolStripSubMenu.Click += new EventHandler(toolStripSubMenu_Click);
             this.notifyContextMenuStrip.Items.Add(toolStripSubMenu);
 
@@ -193,7 +193,12 @@ namespace QuickBox
             {
                 //打开文件
                 BoxFile selectBoxFileItem = toolStripMenuItem.Tag as BoxFile;
+                
                 bool state = Utils.StartFile(selectBoxFileItem.AbsolutePath);
+
+                
+
+
                 if (!state)
                 {
                     MessageUtil.ShowTips(string.Format("文件“{0}”不存在。", selectBoxFileItem.Name));

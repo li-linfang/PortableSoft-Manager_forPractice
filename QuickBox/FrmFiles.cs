@@ -9,6 +9,7 @@ using QuickBox.MG.Data;
 using QuickBox.MG.Entity;
 using QuickBox.MG.Controls;
 using CSharp_Util.Util;
+using System.Threading;
 
 namespace QuickBox
 {
@@ -151,6 +152,12 @@ namespace QuickBox
             //获取拖拽进来的文件数组
             string[] files = e.Data.GetData(DataFormats.FileDrop) as string[];
 
+
+            var parentPath = $"{Directory.GetCurrentDirectory()}\\Progress";
+            var parentPath2 = $"{Directory.GetCurrentDirectory()}\\Zips";
+            if (!Directory.Exists(parentPath2))
+                Directory.CreateDirectory(parentPath2);
+
             if (files.Length > 0)
             {
                 string fileName;
@@ -182,29 +189,36 @@ namespace QuickBox
 
 
                         var relativePath = "\\"+Path.GetFileName(file);
-                        var parentPath = $"{Directory.GetCurrentDirectory()}\\Progress";
                         var newParentFolder = Path.GetFileNameWithoutExtension(file);
 
                         // 复制文件到软件程序目录下
                         if (!Directory.Exists(parentPath+"\\"+newParentFolder))
                             Directory.CreateDirectory(parentPath+"\\"+newParentFolder);
+
                         File.Move(file, parentPath+$"\\{newParentFolder}\\{Path.GetFileName(file)}");
 
+                        var originFile = parentPath + $"\\{newParentFolder}\\{Path.GetFileName(file)}";
+                        var zipFile = parentPath2 + $"\\{Path.GetFileNameWithoutExtension(file)}.zip";
+
                         addNewItemInBox(groupName, relativePath, fileName);
+                        CSharpUtil.FileUtils.CreatZip(originFile,zipFile);
                     } else if (Directory.Exists(file))
                     {
                         string retFilePath = FileUtil.FindExecutableProgramWithSameNameAsDirectory(file);
                         if (!"".Equals(retFilePath))
                         {
                             var relativePath = retFilePath.Replace(file, "");
-                            var parentPath = $"{Directory.GetCurrentDirectory()}\\Progress";
                             retFilePath =  parentPath + "\\" + Path.GetFileName(file) + relativePath;
 
                             if (!Directory.Exists(parentPath))
                                 Directory.CreateDirectory(parentPath);
+
                             Directory.Move(file, parentPath+$"\\{Path.GetFileName(file)}");
+                            var originFile = parentPath + $"\\{Path.GetFileName(file)}";
+                            var zipFile = parentPath2 + $"\\{Path.GetFileNameWithoutExtension(file)}.zip";
 
                             addNewItemInBox(groupName, relativePath, Path.GetFileNameWithoutExtension(retFilePath));
+                            CSharpUtil.FileUtils.CreatZip(originFile, zipFile);
                         }
                     }
                 }

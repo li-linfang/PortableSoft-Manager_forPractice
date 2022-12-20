@@ -68,7 +68,7 @@
             // gbConfigGroupName
             // 
             this.gbConfigGroupName.BackColor = System.Drawing.SystemColors.Control;
-            this.gbConfigGroupName.BackgroundImage = global::QuickBox.Properties.Resources.bg2;
+            this.gbConfigGroupName.BackgroundImage = global::PortableSoftManager.Properties.Resources.bg2;
             this.gbConfigGroupName.Controls.Add(this.gbDoChangeGroup);
             this.gbConfigGroupName.Controls.Add(this.gbOperateGroup);
             this.gbConfigGroupName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -238,7 +238,7 @@
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.Transparent;
-            this.btnExit.BackgroundImage = global::QuickBox.Properties.Resources.btnExit;
+            this.btnExit.BackgroundImage = global::PortableSoftManager.Properties.Resources.btnExit;
             this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnExit.BtnEnabled = true;
             this.btnExit.ButtonState = QuickBox.MG.Controls.ImageButton.State.Normal;
@@ -254,7 +254,7 @@
             // btnOption
             // 
             this.btnOption.BackColor = System.Drawing.Color.Transparent;
-            this.btnOption.BackgroundImage = global::QuickBox.Properties.Resources.btnOption;
+            this.btnOption.BackgroundImage = global::PortableSoftManager.Properties.Resources.btnOption;
             this.btnOption.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnOption.BtnEnabled = true;
             this.btnOption.ButtonState = QuickBox.MG.Controls.ImageButton.State.Normal;
@@ -272,7 +272,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.BackgroundImage = global::QuickBox.Properties.Resources.bg;
+            this.BackgroundImage = global::PortableSoftManager.Properties.Resources.bg;
             this.ClientSize = new System.Drawing.Size(492, 346);
             this.ControlBox = false;
             this.Controls.Add(this.tabFileGroup);

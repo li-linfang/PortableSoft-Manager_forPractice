@@ -1,0 +1,10 @@
+D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\obj\Debug\PortableSoftManager.csproj.AssemblyReference.cache
+D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\obj\Debug\PortableSoftManager.csproj.SuggestedBindingRedirects.cache
+D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\obj\Debug\QuickBox.FrmFiles.resources
+D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\obj\Debug\QuickBox.FrmTray.resources
+D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\obj\Debug\QuickBox.Properties.Resources.resources
+D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\obj\Debug\QuickBox.FrmStart.resources
+D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\obj\Debug\PortableSoftManager.csproj.GenerateResource.cache
+D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\obj\Debug\PortableSoftManager.csproj.CoreCompileInputs.cache
+D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\obj\Debug\QuickBox.exe
+D:\Windows数据移动到此文件夹\Documents\GitHub\PortableSoft-Manager_forPractice\QuickBox\obj\Debug\QuickBox.pdb

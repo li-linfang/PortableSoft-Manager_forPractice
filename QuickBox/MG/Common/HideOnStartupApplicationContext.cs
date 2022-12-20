@@ -7,6 +7,10 @@ namespace QuickBox.MG.Common
     {
         private Form mainFormInternal;
 
+
+        // 图标
+        // <a href = "https://www.flaticon.com/free-icons/platform" title="platform icons">Platform icons created by dDara - Flaticon</a>
+
         // 构造函数，主窗体被存储在mainFormInternal
         public HideOnStartupApplicationContext(Form mainForm)
         {
